@@ -1,0 +1,24 @@
+{
+  "name": "prepare-nest-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuyingANew-Soul/prepare-nest-file.git"
+  },
+  "author": "taz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuyingANew-Soul/prepare-nest-file/issues"
+  },
+  "homepage": "https://github.com/BuyingANew-Soul/prepare-nest-file#readme",
+  "dependencies": {
+    "@svgdotjs/svg.js": "^3.1.2",
+    "jsdom": "^21.0.0",
+    "svgdom": "^0.1.11"
+  }
+}

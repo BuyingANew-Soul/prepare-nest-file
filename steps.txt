@@ -1,0 +1,24 @@
+1. Read the files for sizes
+    -> save and create svg using SVGjs and push into an array
+2. Get specified elements for each sizes
+3. Make copy for specified quantity of an element
+4. Put all of them into an SVG document 
+5. Calculate bbox() for element
+6. feed the bbox coordinate and dimensions to the sorting program
+
+
+
+Issues:
+#1 How to handle duplicate ids?   = need to add the size info in the ids somehow
+#2 
+
+
+Width calculation:
+1. keep track of the total width of the elements placing
+2. if the width equals or just under a critical value, break and start a new row
+3. 
+
+
+total_width = 0
+total_height = 0
+
