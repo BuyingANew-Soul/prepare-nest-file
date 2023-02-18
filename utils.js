@@ -14,7 +14,12 @@ const getElements = (dictionary, svg, bin_size) => {
     for (const [key, value] of Object.entries(dictionary)) {
         let selector = `[id*=${key} i]`;
         const element = svg.find(selector);
-        const outline = element.findOne(`[id*="outline" i]`)
+
+        // if there is a transform attribute in the element remove it
+        element.attr("transform", null);
+        console.log(element.nextSibling);
+
+        //const element = element.findOne(`[id*="element" i]`)
         // console.log(element.svg());
         console.log(`Total priv height: ${total_height_previous_elmnts}`);
         console.log(`current element height: ${element.height()[0]}`)
@@ -52,8 +57,8 @@ const getElements = (dictionary, svg, bin_size) => {
                     });     
                     
                     // in case of bibs the width, height, bbox shows 0 if I take the outer <g>
-                    // so if I get zero on any elemnt, I am taking the "outline" from inside the <g>
-                    var w = outline.width()[0]
+                    // so if I get zero on any elemnt, I am taking the "element" from inside the <g>
+                    var w = element.width()[0]
                     
                     total_width_of_current_row += w;
                     
@@ -69,7 +74,7 @@ const getElements = (dictionary, svg, bin_size) => {
                         j = 1;
                         // add the current element height to the total height count
                         // so that the new row starts from below the previous
-                        total_height_previous_elmnts += outline.height()[0];
+                        total_height_previous_elmnts += element.height()[0];
                         
                     }
                     
@@ -99,7 +104,7 @@ const getElements = (dictionary, svg, bin_size) => {
                 body += element[0].svg();
             }
         }
-        total_height_previous_elmnts += outline.height()[0];
+        total_height_previous_elmnts += element.height()[0];
     };
    
     // elements.forEach(element => {

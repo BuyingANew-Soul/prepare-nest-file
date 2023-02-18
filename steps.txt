@@ -19,6 +19,30 @@ Width calculation:
 3. 
 
 
-total_width = 0
-total_height = 0
 
+
+file structure
+
+--> There is a <!DOCTYPE at the begining of the files, removing that during readingSvg
+<svg>
+    <g id="someid">
+        <g style>
+            <g id="element1_outline"></g>
+            <g id="element1_base"></g>
+            <g id="element1_other"></g>
+            <g id="element2_outline"></g>
+            <g id="element2_base"></g>
+            <g id="element2_other"></g>
+            <g id="element2_ootheree"></g>
+        </g>
+    </g>
+    <g id="someid">contains image</g>
+    <g id="someid">contains image</g>
+    <g id="someid">contains Text</g>
+</svg>
+
+
+possible solutions
+--> find the element by id
+--> prepare only the outlines (that's easy)
+--> prepare the element with all the designs associate (need to figure out)

@@ -2,7 +2,13 @@ const fs = require('fs');
 
 const svgFromFile = (path) => {
     try {
-        const svgString = fs.readFileSync(path, 'utf8');
+        var svgString = fs.readFileSync(path, 'utf8');
+
+        // removing the line starts with <!DOCTYPE 
+        svgString = svgString.split('\n').filter(function(line){ 
+            return line.indexOf( "DOCTYPE" ) == -1;
+        }).join('\n');
+
         return svgString;
     } catch (err) {
         console.error(err);

@@ -38,7 +38,7 @@ var elements = `
 // create SVG document from the strings
 var svg = svgFromString(elements);
 svg.width(2000);
-svg.height(3000)
+svg.height(3000);
 svg.viewbox(0,0,2000,3000)
 writeSvg(svg.svg(), 'svgs/new.svg');
 
