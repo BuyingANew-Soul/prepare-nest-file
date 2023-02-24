@@ -1,4 +1,5 @@
-
+const svgFromString = require('./svgFromString');
+const {svgFromFile, readAllSvgs} = require('./readingSvg');
 
 
 const getElements = (dictionary, svg, bin_size) => {
@@ -13,24 +14,14 @@ const getElements = (dictionary, svg, bin_size) => {
     for (const [key, value] of Object.entries(dictionary)) {
         let selector = `[id*=${key} i]`;
         const element = svg.find(selector);
-
-        // if there is a transform attribute in the element remove it
-        element.attr("transform", null);
+        const outline = element.findOne(`[id*="outline" i]`)
+        console.log(outline)
         
-
-        // find the design elements under the outline or selected element
-        var designs = [];
-        var current_el = element;
-
-    
-        console.log(`Designs associated with the current outline: ${designs.length}`)
-
-        //const element = element.findOne(`[id*="element" i]`)
-        // console.log(element.svg());
         console.log(`Total priv height: ${total_height_previous_elmnts}`);
         console.log(`current element height: ${element.height()[0]}`)
         if (element){
             console.log(`Current Element: ${element[0].node.tagName} --- id: ${element[0].node.getAttribute("id")}`)
+            console.log(`Current Outline: ${outline[0].node.tagName} --- id: ${outline[0].node.getAttribute("id")}`)
             if (value >1){
                 
                 var id = element.attr("id")[0];
@@ -49,21 +40,29 @@ const getElements = (dictionary, svg, bin_size) => {
 
                     element.attr("id", new_id);
                     // need to change the ids of the child nodes also
+                    var c = 1
                     children.forEach(child => {
                         var existing_id = child.getAttribute("id");
                         if (!existing_id){
                             existing_id = new_id + "extra";
                         }
+                        //var nid = existing_id + "_" + i.toString();
                         if (i === 1){
-                            var nid = existing_id + "_" + i.toString();    
+                            var nid = existing_id + "_" + c.toString();    
                         }else{
-                            var nid = existing_id.slice(0,-2) + "_" + i.toString();    
+                            var nid = existing_id.slice(0,-2) + "_" + c.toString();    
                         } 
                         child.setAttribute("id", nid);
+                        c += 1
                     });     
                     
                     // in case of bibs the width, height, bbox shows 0 if I take the outer <g>
-                    // so if I get zero on any elemnt, I am taking the "element" from inside the <g>
+                    // so if I get zero on any elemnt, I am taking the "outline" from inside the <g>
+                    // if(outline.width()){
+                    //     var w = outline.width()[0]
+                    // }else{
+                    //     var w = element.width([0])
+                    // }
                     var w = element.width()[0]
                     
                     total_width_of_current_row += w;

@@ -13,7 +13,7 @@ const svgFromString = (string) => {
     
     const draw = SVG(document.documentElement);
     var svg = draw.svg(string);
-    return svg;
+    return [svg,draw];
         
 };
 
