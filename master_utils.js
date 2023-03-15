@@ -54,6 +54,11 @@ const getElements = (dictionary, svg, bin_size) => {
                         } 
                         child.setAttribute("id", nid);
                         c += 1
+
+                        // removing the svgjs:data attribute if presents
+                        
+                        //child.removeAttribute('svgjs:data');
+                    
                     });     
                     
                     // in case of bibs the width, height, bbox shows 0 if I take the outer <g>
@@ -101,10 +106,23 @@ const getElements = (dictionary, svg, bin_size) => {
                     console.log(element[0].x(), element[0].y());
                     console.log(element[0].node.tagName);
                     console.log(element.bbox());
+                    
+                //     try {
+                //     element[0].removeAttribute('svgjs:data');    
+                // } catch (error) {
+                //     console.log(error);
+                // }
+                
                     body += element[0].svg();
                     
                 }
             }else{
+                // try {
+                //     element[0].removeAttribute('svgjs:data');    
+                // } catch (error) {
+                //     console.log(error);
+                // }
+                
                 
                 body += element[0].svg();
             }
@@ -119,6 +137,23 @@ const getElements = (dictionary, svg, bin_size) => {
     return body;
 };
 
+
+const removeSVGJSdata = (svgNode)=>{
+    if(svgNode.tagName == 'text'){
+        console.log("found text element")
+        svgNode.removeAttributeNS(SVG.svgjs, 'svgjs:data')
+        console.log("Yes, it has svgjs:data");
+        console.log(svgNode.getAttribute("svgjs:data"))
+        return;
+        
+    }
+
+    if(svgNode.childNodes.length >0){
+        svgNode.childNodes.forEach(child => {
+            return removeSVGJSdata(child)
+        });
+    }
+}
 
 
 const printElementIDs = (svg) => {

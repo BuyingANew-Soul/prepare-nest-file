@@ -95,7 +95,7 @@ function creteGroups(svg, draw){
             }
         }
     });
-    console.log(outlines)
+    //console.log(outlines)
 
 
     // create groups and add elements to respective groups
