@@ -91,6 +91,8 @@ const getElements = (dictionary, svg, bin_size) => {
                     console.log(element[0].x(), element[0].y());
                     console.log(element[0].node.tagName);
                     console.log(element.bbox());
+                    element[0].node.removeAttribute("svgjs:data");
+                    element[0].node.removeAttribute("data");
                     body += element[0].svg();
                     
                 }

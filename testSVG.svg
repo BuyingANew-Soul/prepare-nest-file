@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 6000 6000" enable-background="new 0 0 6000 6000" xml:space="preserve">
+
+    <g id="left_Gripper_3_1">
+
+        <rect id="left_Gripper_Outline_3__1" x="3290.1220000000003" y="3996.823"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="none" stroke="#000000"
+            stroke-miterlimit="10" width="1282.396" height="198.425"></rect>
+
+        <rect id="C1_13__1" x="3290.1220000000003" y="3996.823"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="#66C5EB" width="1282.396"
+            height="198.425"></rect>
+        <text transform="matrix(0.7608 0.0023 -0.003 1 4342.3335 4000.4229)" id="left_Gripper_3_1extra_1"
+            x="1.6342482922482304e-13" y="0">
+            <tspan x="0" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">Code:BR 4001, Size:X</tspan>
+            <tspan x="50.028" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">L</tspan>
+        </text>
+    </g>
+    <g id="left_Gripper_3_2">
+
+        <rect id="left_Gripper_Outline_3__2" x="2007.726000000001" y="3996.8230000575763"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="none" stroke="#000000"
+            stroke-miterlimit="10" width="1282.396" height="198.425"></rect>
+
+        <rect id="C1_13__2" x="2007.726000000001" y="3996.8230000575763"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="#66C5EB" width="1282.396"
+            height="198.425"></rect>
+        <text transform="matrix(0.7608 0.0023 -0.003 1 4342.3335 4000.4229)" id="left_Gripper_3_1extra_2"
+            x="1685.5735666960968" y="-3.876819203400828">
+            <tspan x="0" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">Code:BR 4001, Size:X</tspan>
+            <tspan x="50.028" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">L</tspan>
+        </text>
+    </g>
+    <g id="left_Gripper_3_3">
+
+        <rect id="left_Gripper_Outline_3__3" x="-557.0659999999989" y="3996.8230001727293"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="none" stroke="#000000"
+            stroke-miterlimit="10" width="1282.396" height="198.425"></rect>
+
+        <rect id="C1_13__3" x="-557.0659999999989" y="3996.8230001727293"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="#66C5EB" width="1282.396"
+            height="198.425"></rect>
+        <text transform="matrix(0.7608 0.0023 -0.003 1 4342.3335 4000.4229)" id="left_Gripper_3_1extra_3"
+            x="5056.720700088288" y="-11.630457610202939">
+            <tspan x="0" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">Code:BR 4001, Size:X</tspan>
+            <tspan x="50.028" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">L</tspan>
+        </text>
+    </g>
+    <g id="left_Gripper_3_4">
+
+        <rect id="left_Gripper_Outline_3__4" x="-557.0660000089073" y="3798.39800017273"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="none" stroke="#000000"
+            stroke-miterlimit="10" width="1282.396" height="198.425"></rect>
+
+        <rect id="C1_13__4" x="-557.0660000089073" y="3798.39800017273"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="#66C5EB" width="1282.396"
+            height="198.425"></rect>
+        <text transform="matrix(0.7608 0.0023 -0.003 1 4342.3335 4000.4229)" id="left_Gripper_3_1extra_4"
+            x="5057.503125957454" y="186.79274281029802">
+            <tspan x="0" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">Code:BR 4001, Size:X</tspan>
+            <tspan x="50.028" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">L</tspan>
+        </text>
+    </g>
+    <g id="left_Gripper_3_5">
+
+        <rect id="left_Gripper_Outline_3__5" x="-1839.4620000178156" y="3599.973000230307"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="none" stroke="#000000"
+            stroke-miterlimit="10" width="1282.396" height="198.425"></rect>
+
+        <rect id="C1_13__5" x="-1839.4620000178156" y="3599.973000230307"
+            transform="matrix(-1 -4.489754e-11 4.489754e-11 -1 7862.6411 8192.0713)" fill="#66C5EB" width="1282.396"
+            height="198.425"></rect>
+        <text transform="matrix(0.7608 0.0023 -0.003 1 4342.3335 4000.4229)" id="left_Gripper_3_1extra_5"
+            x="6743.859118522717" y="381.33912402739816">
+            <tspan x="0" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">Code:BR 4001, Size:X</tspan>
+            <tspan x="50.028" y="0" fill="#E74810" font-family="'ArialMT'" font-size="5px">L</tspan>
+        </text>
+    </g>
+</svg>

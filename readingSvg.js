@@ -30,7 +30,7 @@ const writeSvg = (svg, name) => {
     }
     // file written successfully
     });
-}
+};
 
 
 module.exports = {svgFromFile, readAllSvgs, writeSvg};
