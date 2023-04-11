@@ -13,20 +13,20 @@ const getElements = (dictionary, svg, bin_size) => {
     console.log(svg.height());
     for (const [key, value] of Object.entries(dictionary)) {
         let selector = `[id*=${key} i]`;
-        const element = svg.find(selector);
+        const element = svg.findOne(selector);
         const outline = element.findOne(`[id*="outline" i]`)
-        // console.log(element.svg());
+        //console.log(element);
         console.log(`Total priv height: ${total_height_previous_elmnts}`);
-        console.log(`current element height: ${element.height()[0]}`)
+        console.log(`current element height: ${element.height()}`)
         if (element){
-            console.log(`Current Element: ${element[0].node.tagName} --- id: ${element[0].node.getAttribute("id")}`)
+            console.log(`Current Element: ${element.node.tagName} --- id: ${element.node.getAttribute("id")}`)
             if (value >1){
                 
                 var id = element.attr("id")[0];
 
                 // children of the current element
-                var children = element[0].node.children;
-                console.log(`Child nodes: ${element[0].node.children.length}`);
+                var children = element.node.children;
+                console.log(`Child nodes: ${element.node.children.length}`);
                
                 // set loop variable j which will control the new row creation
                 var j = 1;
@@ -53,13 +53,15 @@ const getElements = (dictionary, svg, bin_size) => {
                     
                     // in case of bibs the width, height, bbox shows 0 if I take the outer <g>
                     // so if I get zero on any elemnt, I am taking the "outline" from inside the <g>
-                    var w = outline.width()[0]
+                    console.log("Width of the outline");
                     
+                    var w = outline.width()
+                    console.log(w)
                     total_width_of_current_row += w;
                     
                     // check if the width exceeds the bin width
                     
-                    if ( (bin_size[0]-total_width_of_current_row) < 0 ){
+                    if ( (bin_size[0]-total_width_of_current_row) < w ){
                         console.log(`***total width of current row: ${total_width_of_current_row}`);
                         console.log(`***bin width: ${bin_size[0]}`);
                         total_width_of_current_row = 0;
@@ -69,60 +71,45 @@ const getElements = (dictionary, svg, bin_size) => {
                         j = 1;
                         // add the current element height to the total height count
                         // so that the new row starts from below the previous
-                        total_height_previous_elmnts += outline.height()[0];
+                        console.log("Height of the outline");
+                        console.log(outline.height());
+                        total_height_previous_elmnts += outline.height();
                         
                     }
                     
                     //add translation for element except the first one
                     if (j != 1){   
                         //new_element.x((i-1)*w);
-                        //element[0].x((j-1)*w);
+                        //element.x((j-1)*w);
                         element.move((j-1)*w, total_height_previous_elmnts);
                     }else{
                         //new_element.x(0);
-                        //element[0].x(0);
+                        //element.x(0);
                         element.move(0, total_height_previous_elmnts);
                     }
                     j += 1;
-                    // placement of the element in y
-                    //element[0].y(total_height_previous_elmnts);
 
 
-                    console.log(element[0].x(), element[0].y());
-                    console.log(element[0].node.tagName);
+                    console.log(element.x(), element.y());
+                    console.log(element.node.tagName);
                     console.log(element.bbox());
-                    element[0].node.removeAttribute("svgjs:data");
-                    element[0].node.removeAttribute("data");
-                    body += element[0].svg();
+                    element.node.removeAttribute("svgjs:data");
+                    element.node.removeAttribute("data");
+                    body += element.svg();
                     
                 }
             }else{
                 
-                body += element[0].svg();
+                body += element.svg();
             }
         }
-        total_height_previous_elmnts += outline.height()[0];
+        total_height_previous_elmnts += outline.height();
     };
    
-    // elements.forEach(element => {
-    //     console.log(element.svg());
-    // });
-    //return elements;
     return body;
 };
 
 
-
-const printElementIDs = (svg) => {
-    
-    let selector = '[id]';
-    const elements = svg.find(selector);
-      
-    console.log(`\nNumber of elements: ${elements.length}`)
-    elements.forEach(element => {
-        console.log(element.attr("id"));
-    });
-};
 
 
 const setSizeInfoToID = (svg, size) => {
@@ -135,4 +122,4 @@ const setSizeInfoToID = (svg, size) => {
 }
 
 
-module.exports = { getElements, printElementIDs, setSizeInfoToID };
+module.exports = { getElements, setSizeInfoToID };

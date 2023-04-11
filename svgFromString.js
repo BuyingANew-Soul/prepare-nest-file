@@ -17,4 +17,4 @@ const svgFromString = (string) => {
         
 };
 
-module.exports = { svgFromString, SVG, document };
+module.exports = { svgFromString };
