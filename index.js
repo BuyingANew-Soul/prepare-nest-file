@@ -5,7 +5,6 @@ const { getElements } = require('./utils');
 
 // elements and quantity info
 // this is specific to every size
-var quantity = 4;
 var bin_size = [4000, 5000];   // [width, height]
 var elementAndQuantity = {"Elastic_Band_1_":5, "Collar_1_":10, "Pocket_1_":7, "Right_sleeve_1_":5}
 
