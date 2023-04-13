@@ -5,6 +5,8 @@ const document = window.document
 const { SVG, registerWindow } = require('@svgdotjs/svg.js')
 //const {svgFromFile, readAllSvgs, writeSvg} = require('./readingSvg');
 
+// register window and document
+registerWindow(window, document);
 
 const svgFromFile = (path) => {
     try {
@@ -16,9 +18,6 @@ const svgFromFile = (path) => {
     
 };
 
-
-// register window and document
-registerWindow(window, document);
 
 const svgFromString = (string) => {
     
@@ -41,14 +40,22 @@ const writeSvg = (svg, name) => {
 
 
 
-var svgString = svgFromFile("svgs/test svgs/simple.svg");
+var svgString = svgFromFile("svgs/test svgs/bib1.svg");
 var svg = svgFromString(svgString);
 //console.log(svg.svg())
 
 // getting the specific element
 let selector = `[id*="P8_5_"]`;
-const element = svg.find(selector);
-element.move(10,10);
+const element = svg.findOne(selector);
+
+var el = element.clone()
+el.move(100,100);
+
+svg.clear()
+svg.width(4000);
+svg.height(4000);
+svg.viewbox(0,0,4000,4000);
+svg.add(el);
 
 writeSvg(svg.svg(), 'svgs/new.svg');
 

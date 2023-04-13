@@ -1,5 +1,4 @@
 const svgFromString = require('./svgFromString');
-const {svgFromFile, readAllSvgs} = require('./readingSvg');
 
 
 const setIDs = (original, cloned) => {
@@ -14,8 +13,8 @@ const setIDs = (original, cloned) => {
     }
 };
 
+
 const getElements = (dictionary, svg, bin_size) => {
-    
     
     var total_height_previous_elmnts = 0;
     var total_width_of_current_row = 0    
@@ -26,9 +25,6 @@ const getElements = (dictionary, svg, bin_size) => {
     for (const [key, value] of Object.entries(dictionary)) {
         let selector = `[id*=${key} i]`;
         const el = svg.findOne(selector);
-
-        
-
         //console.log(svg.svg())
         //console.log(element.svg());
 
