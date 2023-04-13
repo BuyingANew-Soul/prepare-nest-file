@@ -2,52 +2,71 @@ const svgFromString = require('./svgFromString');
 const {svgFromFile, readAllSvgs} = require('./readingSvg');
 
 
+const setIDs = (original, cloned) => {
+    cloned.node.setAttribute("id", original.node.getAttribute("id"));
+
+    for (var i=0; i< original.node.children.length; i++){
+        // console.log("from here")
+        // console.log(original.node.children[0])
+        if(original.node.children[i].hasAttribute("id")){
+            cloned.node.children[i].setAttribute("id", original.node.children[i].getAttribute("id"));
+        }
+    }
+};
+
 const getElements = (dictionary, svg, bin_size) => {
     
     
     var total_height_previous_elmnts = 0;
     var total_width_of_current_row = 0    
-    var body = '';
+    var body = [];
 
     console.log(svg.width());
     console.log(svg.height());
     for (const [key, value] of Object.entries(dictionary)) {
         let selector = `[id*=${key} i]`;
-        const element = svg.findOne(selector);
-        const outline = element.findOne(`[id*="outline" i]`)
+        const el = svg.findOne(selector);
+
+        
+
+        //console.log(svg.svg())
+        //console.log(element.svg());
+
+        const outline = el.findOne(`[id*="outline" i]`)
         //console.log(element);
         console.log(`Total priv height: ${total_height_previous_elmnts}`);
-        console.log(`current element height: ${element.height()}`)
-        if (element){
-            console.log(`Current Element: ${element.node.tagName} --- id: ${element.node.getAttribute("id")}`)
+        console.log(`current element height: ${el.height()}`)
+        if (el){
+            console.log(`Current Element: ${el.node.tagName} --- id: ${el.node.getAttribute("id")}`)
             if (value >1){
-                
-                var id = element.attr("id")[0];
 
-                // children of the current element
-                var children = element.node.children;
-                console.log(`Child nodes: ${element.node.children.length}`);
                
                 // set loop variable j which will control the new row creation
                 var j = 1;
                 
                 for (var i=1; i<=value; i++){
                     
+                    // cloning the element
+                    const element = el.clone()
+                    // set the ids to the cloned node
+                    setIDs(el, element);
+                    var id = element.attr("id");
+                    console.log(`Original id: ${id}`)
                     new_id = id+i.toString();
-                    //new_element.attr("id", new_id);
-
+                    console.log(`New id: ${new_id}`)
                     element.attr("id", new_id);
+
+                    // children of the current element
+                    var children = element.node.children;
+                    console.log(`Child nodes: ${el.node.children.length}`);
+
                     // need to change the ids of the child nodes also
                     children.forEach(child => {
                         var existing_id = child.getAttribute("id");
                         if (!existing_id){
                             existing_id = new_id + "extra";
                         }
-                        if (i === 1){
-                            var nid = existing_id + "_" + i.toString();    
-                        }else{
-                            var nid = existing_id.slice(0,-2) + "_" + i.toString();    
-                        } 
+                        var nid = existing_id + "_" + i.toString(); 
                         child.setAttribute("id", nid);
                     });     
                     
@@ -93,14 +112,17 @@ const getElements = (dictionary, svg, bin_size) => {
                     console.log(element.x(), element.y());
                     console.log(element.node.tagName);
                     console.log(element.bbox());
-                    element.node.removeAttribute("svgjs:data");
-                    element.node.removeAttribute("data");
-                    body += element.svg();
+                    // element.node.removeAttribute("svgjs:data");
+                    // element.node.removeAttribute("data");
+                    //body += element.svg();
+                    body.push(element);
+                    //console.log(element.svg());
                     
                 }
             }else{
                 
-                body += element.svg();
+                //body += element.svg();
+                body.push(element);
             }
         }
         total_height_previous_elmnts += outline.height();
